@@ -50,7 +50,7 @@ const Filter = (props) => {
   };
 
   return (
-    <div className="flex flex-col items-center bg-[#05203C] p-10 rounded-md">
+    <div className="flex flex-col items-center w-full bg-[#05203C] p-10 rounded-md">
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full">
         <div className="w-full">
           <InputField
@@ -70,8 +70,8 @@ const Filter = (props) => {
             Title="To"
           />
         </div>
-        <div className="flex flex-col sm:flex-row sm:gap-4 gap-1  justify-center items-center">
-          <div className="flex items-center gap-4 mt-4">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col gap-0 w-full sm:flex-row sm:flex-1 sm:items-center sm:gap-4 mt-4">
             <DateField
               type="date"
               placeholder="Departure Date"
@@ -83,7 +83,7 @@ const Filter = (props) => {
               register={register("returnDate")}
             />
           </div>
-          <div className="flex items-center mt-4">
+          <div className="flex items-center sm:mt-4">
             <InputField
               type="text"
               placeholder="Airlines"
