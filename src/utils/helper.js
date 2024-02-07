@@ -61,17 +61,49 @@ export function getUniqueAirline(data) {
 }
 
 export function filterAndSortEntries(entries, filters, pageNumber, order) {
-  if (filters.arrTime && filters.depTime) {
-    (entry) =>
-      formatDate(entry.displayData.source.depTime) ===
-        formatDate(filters.depTime) &&
-      formatDate(entry.displayData.destination.arrTime) ===
-        formatDate(filters.arrTime);
+  if (filters.arrTime && filters.depTime && filters.airlines) {
+    entries = entries.filter(
+      (entry) =>
+        formatDate(entry.displayData.source.depTime) ===
+          formatDate(filters.depTime) &&
+        formatDate(entry.displayData.destination.arrTime) ===
+          formatDate(filters.arrTime) &&
+        entry.displayData.airlines[0].airlineName === filters.airlines,
+    );
+  } else if (filters.source && filters.destination && filters.airlines) {
+    entries = entries.filter(
+      (entry) =>
+        entry.displayData.source.airport.cityName === filters.source &&
+        entry.displayData.destination.airport.cityName ===
+          filters.destination &&
+        entry.displayData.airlines[0].airlineName === filters.airlines,
+    );
+  } else if (filters.arrTime && filters.depTime) {
+    entries = entries.filter(
+      (entry) =>
+        formatDate(entry.displayData.source.depTime) ===
+          formatDate(filters.depTime) &&
+        formatDate(entry.displayData.destination.arrTime) ===
+          formatDate(filters.arrTime),
+    );
   } else if (filters.source && filters.destination) {
     entries = entries.filter(
       (entry) =>
         entry.displayData.source.airport.cityName === filters.source &&
         entry.displayData.destination.airport.cityName === filters.destination,
+    );
+  } else if (filters.source && filters.airlines) {
+    entries = entries.filter(
+      (entry) =>
+        entry.displayData.source.airport.cityName === filters.source &&
+        entry.displayData.airlines[0].airlineName === filters.airlines,
+    );
+  } else if (filters.destination && filters.airlines) {
+    entries = entries.filter(
+      (entry) =>
+        entry.displayData.destination.airport.cityName ===
+          filters.destination &&
+        entry.displayData.airlines[0].airlineName === filters.airlines,
     );
   } else if (filters.source) {
     entries = entries.filter(

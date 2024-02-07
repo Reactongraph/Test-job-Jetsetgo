@@ -46,15 +46,14 @@
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.1",
     "babel-jest": "^29.7.0",
-    "husky": "^9.0.10",
-    "jest": "^27.5.1",
-    "react-test-renderer": "^18.2.0",
     "eslint": "^8",
     "eslint-config-next": "14.0.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-prettier": "^5.0.1",
-    "prettier": "^3.1.0"
+    "husky": "^9.0.10",
+    "prettier": "^3.1.0",
+    "react-test-renderer": "^18.2.0"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "postcss.config.js",
