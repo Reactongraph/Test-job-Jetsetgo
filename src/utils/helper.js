@@ -60,30 +60,56 @@ export function getUniqueAirline(data) {
   return Array.from(airlineNames);
 }
 
-
 export function filterAndSortEntries(entries, filters, pageNumber, order) {
-    if (filters.source) {
-        entries = entries.filter(entry => entry.displayData.source.airport.cityName === filters.source);
-    } else if (filters.destination) {
-        entries = entries.filter(entry => entry.displayData.destination.airport.cityName === filters.destination);
-    } else if (filters.airlines) {
-        entries = entries.filter(entry => entry.displayData.airlines[0].airlineName === filters.airlines);
-    } else if (filters.depTime) {
-        entries = entries.filter(entry => entry.displayData.source.depTime === filters.depTime);
-    } else if (filters.arrTime) {
-        entries = entries.filter(entry => entry.displayData.destination.arrTime === filters.arrTime);
-    }
-    
-    const pageSize = 10;
-    const startIndex = (pageNumber - 1) * pageSize;
-    const endIndex = startIndex + pageSize;
-    const entriesForPage = entries.slice(startIndex, endIndex);
-    
-    if (order === 1) {
-        return entriesForPage.sort((a, b) => a.fare - b.fare);
-    } else if (order === -1) {
-        return entriesForPage.sort((a, b) => b.fare - a.fare);
-    } else {
-        return entriesForPage;
-    }
+  if (filters.arrTime && filters.depTime) {
+    (entry) =>
+      formatDate(entry.displayData.source.depTime) ===
+        formatDate(filters.depTime) &&
+      formatDate(entry.displayData.destination.arrTime) ===
+        formatDate(filters.arrTime);
+  } else if (filters.source && filters.destination) {
+    entries = entries.filter(
+      (entry) =>
+        entry.displayData.source.airport.cityName === filters.source &&
+        entry.displayData.destination.airport.cityName === filters.destination,
+    );
+  } else if (filters.source) {
+    entries = entries.filter(
+      (entry) => entry.displayData.source.airport.cityName === filters.source,
+    );
+  } else if (filters.destination) {
+    entries = entries.filter(
+      (entry) =>
+        entry.displayData.destination.airport.cityName === filters.destination,
+    );
+  } else if (filters.airlines) {
+    entries = entries.filter(
+      (entry) => entry.displayData.airlines[0].airlineName === filters.airlines,
+    );
+  } else if (filters.depTime) {
+    entries = entries.filter(
+      (entry) =>
+        formatDate(entry.displayData.source.depTime) ===
+        formatDate(filters.depTime),
+    );
+  } else if (filters.arrTime) {
+    entries = entries.filter(
+      (entry) =>
+        formatDate(entry.displayData.destination.arrTime) ===
+        formatDate(filters.arrTime),
+    );
+  }
+
+  const pageSize = 10;
+  const startIndex = (pageNumber - 1) * pageSize;
+  const endIndex = startIndex + pageSize;
+  const entriesForPage = entries.slice(startIndex, endIndex);
+
+  if (order === 1) {
+    return entriesForPage.sort((a, b) => a.fare - b.fare);
+  } else if (order === -1) {
+    return entriesForPage.sort((a, b) => b.fare - a.fare);
+  } else {
+    return entriesForPage;
+  }
 }

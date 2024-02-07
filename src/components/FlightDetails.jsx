@@ -14,12 +14,12 @@ const FlightDetails = () => {
         const data = await response.json();
         if (data) {
           const flightDetail = data?.data?.result?.filter(
-            (flight) => flight.id === params.id
+            (flight) => flight.id === params.id,
           )[0];
           setFlight(flightDetail);
         }
       } catch (error) {
-        console.error("Error fetching data:", error);
+        return error;
       }
     };
 

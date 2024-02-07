@@ -32,17 +32,17 @@ const Filter = (props) => {
     let filtered;
     if (field === "departCity") {
       filtered = allCities1.filter((city) =>
-        city.toLowerCase().includes(value.toLowerCase())
+        city.toLowerCase().includes(value.toLowerCase()),
       );
       setShowDepartSuggestions(filtered);
     } else if (field === "returnCity") {
       filtered = allCities2.filter((city) =>
-        city.toLowerCase().includes(value.toLowerCase())
+        city.toLowerCase().includes(value.toLowerCase()),
       );
       setshowReturnSuggestions(filtered);
     } else if (field === "airlines") {
       filtered = arr3.filter((item) =>
-        item.toLowerCase().includes(value.toLowerCase())
+        item.toLowerCase().includes(value.toLowerCase()),
       );
       setShowAirportSuggestions(filtered);
     }

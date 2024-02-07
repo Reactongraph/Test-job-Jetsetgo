@@ -7,6 +7,7 @@ const DateField = ({ type, placeholder, register }) => {
         {...register}
         className="p-2 w-full"
         placeholder={placeholder}
+        role="textbox"
       />
     </div>
   );

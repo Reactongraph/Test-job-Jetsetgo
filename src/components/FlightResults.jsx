@@ -26,10 +26,10 @@ const FlightResults = () => {
         const data = await response.json();
         setFlights(data);
         setFilterData(
-          filterAndSortEntries(data?.data?.result, filter, page, sortOrder)
+          filterAndSortEntries(data?.data?.result, filter, page, sortOrder),
         );
       } catch (error) {
-        console.error("Error fetching data:", error);
+        return error;
       }
     };
     fetchData();
@@ -42,7 +42,7 @@ const FlightResults = () => {
             <Filter flights={flights?.data?.result} setFilter={setFilter} />
           </div>
           {filterData ? (
-            filterData.length > 0 && (
+            filterData.length > 0 ? (
               <div className="flex flex-col gap-1">
                 <div className="flex justify-between p-1">
                   <SortSelect setSortOrder={setSortOrder} />
@@ -56,6 +56,8 @@ const FlightResults = () => {
                   <FlightCard flight={flight} id={flight.id} key={flight.id} />
                 ))}
               </div>
+            ) : (
+              <span className="text-xl font-semibold">No data matched</span>
             )
           ) : (
             <span className="text-xl font-semibold">Search the Flights</span>
