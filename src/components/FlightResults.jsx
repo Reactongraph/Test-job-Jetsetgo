@@ -37,8 +37,8 @@ const FlightResults = () => {
   return (
     <>
       {flights && flights.data ? (
-        <div className="w-full mt-2 flex flex-col items-center">
-          <div className="p-2">
+        <div className="w-full flex flex-col items-center">
+          <div className="px-2 pb-2">
             <Filter flights={flights?.data?.result} setFilter={setFilter} />
           </div>
           {filterData ? (

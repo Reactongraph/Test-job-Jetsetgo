@@ -39,9 +39,9 @@ const FlightDetails = () => {
               </span>
               <span className="text-lg">Price: ${flight?.fare}</span>
             </div>
-            <div className="flex justify-center">
-              <div className="flex sm:flex gap-4 sm:gap-28 px-4">
-                <div className="flex flex-col">
+            <div className="flex justify-center w-full">
+              <div className="flex sm:flex gap-4 sm:gap-28 px-8 w-full">
+                <div className="flex flex-col w-24">
                   <span className="text-xl font-semibold">Source</span>
                   <span className="text-lg font-normal text-black">
                     {flight?.displayData?.source?.airport?.cityName}
@@ -77,7 +77,7 @@ const FlightDetails = () => {
                     </span>
                   </div>
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col w-24">
                   <span className="text-xl font-semibold">Destination</span>
                   <span className="text-lg font-normal text-black">
                     {flight?.displayData?.destination?.airport?.cityName}

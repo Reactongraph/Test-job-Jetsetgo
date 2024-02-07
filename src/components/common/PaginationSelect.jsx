@@ -11,7 +11,7 @@ const PaginationSelect = ({ totalEntries, currentPage, setPage }) => {
     <select
       value={currentPage}
       onChange={handlePageChange}
-      className="py-2 bg-white px-4 border rounded-md focus:outline-none cursor-pointer"
+      className="py-2 bg-white px-4 shadow-lg rounded-md focus:outline-none text-base font-medium cursor-pointer"
     >
       {[...Array(totalPages).keys()].map((page) => (
         <option key={page + 1} value={page + 1} className="cursor-pointer">

@@ -1,11 +1,11 @@
 const DateField = ({ type, placeholder, register }) => {
   return (
-    <div>
-      <span className="text-white text-xs font-semibold">{placeholder}</span>
+    <div className="mt-2">
+      <span className="text-white font-semibold text-sm ">{placeholder}</span>
       <input
         type={type}
         {...register}
-        className="p-2 w-full"
+        className="px-4 py-2 w-full  border rounded-md focus:outline-none "
         placeholder={placeholder}
         role="textbox"
       />

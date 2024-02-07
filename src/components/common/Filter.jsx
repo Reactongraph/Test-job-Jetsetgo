@@ -50,9 +50,9 @@ const Filter = (props) => {
   };
 
   return (
-    <div className="flex bg-[#05203C] p-10 rounded-md">
+    <div className="flex flex-col items-center bg-[#05203C] p-10 rounded-md">
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full">
-        <div className="flex w-full">
+        <div className="w-full">
           <InputField
             type="text"
             placeholder="Departure City"
@@ -70,9 +70,8 @@ const Filter = (props) => {
             Title="To"
           />
         </div>
-        <div className="flex gap-4 justify-center items-center">
-          <div className="flex gap-2 items-center mt-4">
-            {" "}
+        <div className="flex flex-col sm:flex-row sm:gap-4 gap-1  justify-center items-center">
+          <div className="flex items-center gap-4 mt-4">
             <DateField
               type="date"
               placeholder="Departure Date"
@@ -85,7 +84,6 @@ const Filter = (props) => {
             />
           </div>
           <div className="flex items-center mt-4">
-            {" "}
             <InputField
               type="text"
               placeholder="Airlines"
@@ -97,12 +95,15 @@ const Filter = (props) => {
           </div>
         </div>
 
-        <button
-          type="submit"
-          className="bg-blue-500 bg-blue hover:bg-[#024DAF] font-bold py-2 px-4 rounded mt-4"
-        >
-          Search flights
-        </button>
+        <div className="flex mt-6 justify-center px-4">
+          {" "}
+          <button
+            type="submit"
+            className="bg-blue-500 bg-blue  hover:bg-[#024DAF]  text-white w-1/2 sm:w-1/4 text-lg rounded-lg font-bold py-2"
+          >
+            Search flights
+          </button>
+        </div>
       </form>
     </div>
   );

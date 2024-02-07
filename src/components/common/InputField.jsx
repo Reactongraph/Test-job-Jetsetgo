@@ -24,13 +24,13 @@ const InputField = ({
     setShowSuggestions(false);
   };
   return (
-    <div className="relative">
-      <span className="text-white text-xs font-semibold">{Title}</span>
+    <div className="relative mt-2">
+      <span className="text-white text-sm font-semibold">{Title}</span>
       <input
         type={type}
         value={value}
         onChange={handleInputChange}
-        className="px-4 py-2 w-full border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+        className="px-4 py-2 w-full border rounded-md focus:outline-none "
         placeholder={placeholder}
       />
       {showSuggestions && suggestions && (
