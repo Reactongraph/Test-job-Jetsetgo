@@ -9,6 +9,8 @@ describe("Header component", () => {
     const titleSpan = screen.getByText(/jetsetgo/i);
     expect(titleSpan).toBeInTheDocument();
     expect(titleSpan.tagName).toBe("SPAN");
-    expect(titleSpan).toHaveClass("text-4xl italic font-bold text-blue");
+    expect(titleSpan).toHaveClass(
+      "self-center text-2xl font-semibold whitespace-nowrap dark:text-white",
+    );
   });
 });

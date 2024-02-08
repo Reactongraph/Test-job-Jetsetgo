@@ -24,7 +24,11 @@ module.exports = {
         lightest: "#f9fafc",
       },
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'flightBg': "url('./public/ashim-d-silva-pGcqw1ARGyg-unsplash.jpg')",
+      }
+    },
   },
   plugins: [],
 };
