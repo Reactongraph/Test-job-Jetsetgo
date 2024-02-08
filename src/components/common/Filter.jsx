@@ -50,9 +50,12 @@ const Filter = (props) => {
   };
 
   return (
-    <div className="flex flex-col items-center w-full bg-[#05203C] p-10 rounded-md">
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full">
-        <div className="w-full">
+    <div className="flex items-center w-full px-8 bg-white shadow-lg rounded-md relative pb-12 mb-4">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col items-center justify-center w-full"
+      >
+        <div className="w-full flex flex-col sm:flex-row sm:gap-4 justify-center">
           <InputField
             type="text"
             placeholder="Departure City"
@@ -69,41 +72,33 @@ const Filter = (props) => {
             suggestions={showReturnSuggestions}
             Title="To"
           />
-        </div>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <div className="flex flex-col gap-0 w-full sm:flex-row sm:flex-1 sm:items-center sm:gap-4 mt-4">
-            <DateField
-              type="date"
-              placeholder="Departure Date"
-              register={register("departDate")}
-            />
-            <DateField
-              type="date"
-              placeholder="Return Date"
-              register={register("returnDate")}
-            />
-          </div>
-          <div className="flex items-center sm:mt-4">
-            <InputField
-              type="text"
-              placeholder="Airlines"
-              value={getValues("airlines")}
-              onChange={(value) => filterCities("airlines", value)}
-              suggestions={showAirportSuggestions}
-              Title="Airlines Name"
-            />
-          </div>
+
+          <InputField
+            type="text"
+            placeholder="Airlines"
+            value={getValues("airlines")}
+            onChange={(value) => filterCities("airlines", value)}
+            suggestions={showAirportSuggestions}
+            Title="Airlines Name"
+          />
+          <DateField
+            type="date"
+            placeholder="Departure Date"
+            register={register("departDate")}
+          />
+          <DateField
+            type="date"
+            placeholder="Return Date"
+            register={register("returnDate")}
+          />
         </div>
 
-        <div className="flex mt-6 justify-center px-4">
-          {" "}
-          <button
-            type="submit"
-            className="bg-blue-500 bg-blue  hover:bg-[#024DAF]  text-white w-1/2 sm:w-1/4 text-lg rounded-lg font-bold py-2"
-          >
-            Search flights
-          </button>
-        </div>
+        <button
+          type="submit"
+          className="bg-blue-500 bg-[#DA5200] text-white w-fit px-4 text-lg h-fit py-2.5 rounded-3xl font-bold absolute bottom-[-20px]"
+        >
+          Search Flights
+        </button>
       </form>
     </div>
   );

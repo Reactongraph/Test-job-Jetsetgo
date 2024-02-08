@@ -4,7 +4,7 @@ const Button = (props) => {
   const navigate = useNavigate();
   return (
     <button
-      className="text-xl font-bold p-2 px-4  bg-blue shadow-md rounded-md mt-6"
+      className="text-xl font-bold p-2 px-6  bg-[#DA5200] text-white shadow-md rounded-2xl  mt-6"
       id="button"
       onClick={() => {
         navigate(path);
